@@ -1,0 +1,47 @@
+//Pseudocode for the hashbased cipher - James Vize
+
+START
+
+//calculates the shift and sets the formula
+Function calculateShift(letter, frequency):
+    SET ordinalPos to positioning of letter in the alphabet
+    SET shiftValue to frequency * ordinalPos
+    RETURN shiftValue
+
+//Encodes the message by checking each letter and shifting them
+Function encodeMessage(message):
+
+    //to count how often a singular letter shows up 
+    SET frequencyDict to empty dictionary 
+    FOR EACH letter in message:
+        IF letter is alphabetic
+            INCREMENT frequencyDict[letter] BY 1
+
+    //Creates empty string to store message, and calculates the shift for each letter
+    SET encodedMessage TO empty string
+    FOR EACH letter in message:
+        IF letter is alphabetic:
+            SET shiftValue TO calculateShift(letter, frequencyDict[letter])
+            SET shiftedLetter TO shift letter by shiftValue, wrapping around if needed
+            APPEND shiftedLetter TO encodedMessage
+        ELSE:
+            APPEND letter to encodedMessage
+    RETURN encodedMessage
+
+//Display the hashing for the cipher
+Function displayHashing(frequencyDict):
+    FOR EACH letter IN alphabet:
+        IF letter IN frequencyDict:
+            PRINT letter, frequencyDict[letter]
+        ELSE:
+            PRINT letter, 0
+
+//Main program
+PRINT "Enter your message: "
+SET inputMessage TO user input
+SET encodedMessage TO encodeMessage(inputMessage)
+PRINT "Encoded Message: ", encodedMessage
+PRINT "Hashing: "
+CALL displayHashing(frequencyDict)
+
+END

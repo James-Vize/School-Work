@@ -1,0 +1,25 @@
+Requirements:
+
+- String Input from the user
+- This will calculate the frequency of each letter in the input string.
+- The shift of the cipher is calculated by the ordinal positioning of the letter and the frequency of it.
+- It will then shift each letter by the calculated amount.
+- If the shift exceeds the amount of letters it will then wrap around. 
+- Display the encoded message.
+- Display the Hashing of the alphabet. 
+
+Functions:
+- calculateShift(letter: string, frequency: input) -> integer:
+    Purpose:
+    - calculates the shift value for a letter, multiply the frequency by the ordinal value.
+- encodedMessage(message: string) -> string:
+    Purpose
+    - Encodes the input message using the shift, return the encoded message and display it.
+- displayHashing(frequency: string):
+    Purpose:
+    - Display the alphabet with frequency counts. Display the letter followed by its frequency.
+
+Challenges and Considerations:
+- Dealing with the larger shift values that are longer than the alphabet.
+- Considering the User experience.
+- Ensuring the program can use both uppercase and lowercase lettering.
